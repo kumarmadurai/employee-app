@@ -1,0 +1,46 @@
+<div style="padding: 20px;">
+    <div style="padding: 20px;">
+        <h2>Create record</h2>
+        <form class="emp-form" [formGroup]="empForm">
+            <mat-form-field class="example-full-width">
+                <mat-label>Employee name</mat-label>
+                <input name='name' [(ngModel)]="newEmp.name" formControlName="name" matInput>
+                <mat-error *ngIf="name && name.invalid && name.touched"> Name is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Employee email</mat-label>
+                <input name='email' [(ngModel)]="newEmp.email" type='email' formControlName="email" matInput>
+                <mat-error *ngIf="email && email.invalid && email.touched">Email is required</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Device type</mat-label>
+                <input name='type' [(ngModel)]="newEmp.type" type='text' formControlName="type" matInput>
+                <mat-error *ngIf="type && type.invalid && email.touched"> Type is required</mat-error>
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Description</mat-label>
+                <textarea name='description' [(ngModel)]="newEmp.description" formControlName="description" matInput></textarea>
+                <mat-error style *ngIf="description && description.invalid && description.touched">Description is required</mat-error>
+            </mat-form-field>
+
+            <button (click)="addNewEmps()" [disabled]="empForm.invalid" style="margin-left: 33%;" mat-raised-button color="primary">Add
+                Record</button>
+        </form>
+    </div>
+    <form class="emp-form" style="padding: 20px;">
+
+        <mat-form-field >
+            <mat-label>Search</mat-label>
+            <input name='search' [formControl]="searchControl" type ="search" matInput>
+        </mat-form-field>
+        </form>
+    <mat-divider></mat-divider>
+
+    <div style="padding: 20px;">
+        <app-emp-list></app-emp-list>
+    </div>
+</div>

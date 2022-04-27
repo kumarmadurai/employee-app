@@ -1,0 +1,10 @@
+<div style="height: 100%;">
+    <section class="display-emp" *ngIf="emp$ | async as emp">
+        <mat-card style="height: 300px; width: 300px;">
+            <h1> {{emp.name}} </h1>
+            <h2> {{ emp.email }} </h2>
+            <h3> {{ emp.type }} </h3>
+            <h4> {{ emp.description }} </h4>
+        </mat-card>
+    </section>
+</div>
